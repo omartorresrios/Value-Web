@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, BrowserRouter, browserHistory } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
 import MainLayout from '../components/MainLayout';
 import App from '../components/App';
