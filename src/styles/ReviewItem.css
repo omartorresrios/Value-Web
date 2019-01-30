@@ -1,0 +1,35 @@
+.ReviewItem__root {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  border: 1px solid #efefef;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.ReviewItem-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.ReviewItem-header__avatar-container {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.ReviewItem-header__avatar-img {
+  display: inline-block;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.ReviewItem__body img {
+  display: inline-block;
+  width: 100%;
+}
+
+.ReviewItem__footer {
+  padding: 1rem;
+}
