@@ -20,7 +20,7 @@ class ReviewItem extends React.Component {
 
         </div>
         <div className="ReviewItem__body">
-          <img src={this.props.photoUrl} role="presentation" />
+          <img src={this.props.photoUrl} alt="presentation" />
         </div>
         <div className="ReviewItem__footer">
           <div>
