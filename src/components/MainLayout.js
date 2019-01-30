@@ -7,7 +7,6 @@ const MainLayout = (props) => {
     <div className="MainLayout__root">
       <Header />
       <div className="container">
-        Hola pendejos
         {props.children}
       </div>
     </div>
