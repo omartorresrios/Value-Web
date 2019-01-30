@@ -1,27 +1,22 @@
 import React from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
-import { browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+
+import SignUp from '../views/SignUp';
+import SignIn from '../views/SignIn';
 
 import MainLayout from '../components/MainLayout';
 import Home from '../components/Home';
-import SignIn from '../components/SignIn';
 import Profile from '../components/Profile';
 
-const createRoutes = (store) => {
-  // Create an enhanced history that syncs navigation events with the store
-  const history = syncHistoryWithStore(browserHistory, store);
-  return (
-    <BrowserRouter history={history}>
-      <div>
-        <MainLayout>
-          <Route exact component={Home}/>
-          <Route path="/signin" component={SignIn} />
-          <Route path="/profile" component={Profile}/>
-        </MainLayout>
-      </div>
-    </BrowserRouter>
-  );
-};
-
-export default createRoutes;
+export default (
+  <BrowserRouter>
+    <div>
+      <MainLayout>
+        <Route exact component={Home}/>
+        <Route path="/signup" component={SignUp}/>
+        <Route path="/signin" component={SignIn}/>
+        <Route path="/profile" component={Profile}/>
+      </MainLayout>
+    </div>
+  </BrowserRouter>
+);
