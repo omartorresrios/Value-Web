@@ -5,24 +5,24 @@ import '../styles/ReviewItem.css';
 class ReviewItem extends React.Component {
   render() {
     return (
-      <article className="ReviewItem__root">
-        <div className="ReviewItem-header">
-          <div className="ReviewItem-header__avatar-container">
+      <article className="GalleryItem__root">
+        <div className="GalleryItem-header">
+          <div className="GalleryItem-header__avatar-container">
             <img
               src={this.props.avatarUrl}
-              className="ReviewItem-header__avatar-img"
-              alt={`${this.props.username} profile`}
+              className="GalleryItem-header__avatar-img"
+              alt={`${this.propsusername} profile`}
             />
           </div>
-          <div className="ReviewItem-header__metadata-container">
+          <div className="GalleryItem-header__metadata-container">
             <strong>{this.props.username}</strong>
           </div>
 
         </div>
-        <div className="ReviewItem__body">
-          <img src={this.props.photoUrl} alt="presentation" />
+        <div className="GalleryItem__body">
+          <img src={this.props.photoUrl} role="presentation" />
         </div>
-        <div className="ReviewItem__footer">
+        <div className="GalleryItem__footer">
           <div>
             15 Likes
           </div>
