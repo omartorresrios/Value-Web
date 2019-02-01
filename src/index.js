@@ -1,10 +1,21 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
-import routes from './routes';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
+import MainLayout from './components/MainLayout';
+import App from './components/App';
+import Profile from './components/Profile';
+
+import './styles/index.css';
+
+import { Router, Route, HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  routes,
-  document.getElementById('root'));
+  <HashRouter>
+    <Route path="/" component={MainLayout}>
+      <Route component={App} />
+      <Route path="/profile" component={Profile} />
+    </Route>
 
-serviceWorker.register();
+
+  </HashRouter>,
+  document.getElementById('root')
+);

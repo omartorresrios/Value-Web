@@ -1,16 +1,17 @@
 import React from 'react';
-import Header from './Header';
-import '../styles/MainLayout.css';
 
 const MainLayout = (props) => {
   return (
-    <div className="MainLayout__root">
-      <Header />
+    <div className="main-layout">
+      <div className="App-header">
+        <h2>Welcome to React</h2>
+      </div>
+
       <div className="container">
         {props.children}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default MainLayout;

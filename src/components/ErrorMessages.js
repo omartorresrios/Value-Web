@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/ErrorMessages.css';
+import PropTypes from 'prop-types'
 
 const ErrorMessages = (props) => {
   if (!props.messages.length) {
@@ -19,7 +19,7 @@ const ErrorMessages = (props) => {
 }
 
 ErrorMessages.propTypes = {
-  messages: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  messages: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default ErrorMessages;
