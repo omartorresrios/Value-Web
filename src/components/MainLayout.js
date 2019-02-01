@@ -1,11 +1,10 @@
 import React from 'react';
+import Header from './Header';
 
 const MainLayout = (props) => {
   return (
     <div className="main-layout">
-      <div className="App-header">
-        <h2>Welcome to React</h2>
-      </div>
+      <Header />
 
       <div className="container">
         {props.children}

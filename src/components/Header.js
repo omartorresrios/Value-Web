@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavLink from './NavLink';
 
 import '../styles/Header.css';
 
@@ -17,13 +16,13 @@ const Header = (props) => {
           <nav className="offset-by-five four columns">
             <ul className="Header__nav-group">
               <li className="Header__nav-link">
-                <NavLink to="/explore">Explore</NavLink>
+                <Link to="/explore">Explore</Link>
               </li>
               <li className="Header__nav-link">
-                <NavLink to="/likes">Likes</NavLink>
+                <Link to="/likes">Likes</Link>
               </li>
               <li className="Header__nav-link">
-                <NavLink to="/profile">Profile</NavLink>
+                <Link to="/profile">Profile</Link>
               </li>
             </ul>
           </nav>
