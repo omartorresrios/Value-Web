@@ -3,39 +3,54 @@ import PropTypes from 'prop-types'
 import '../styles/ReviewItem.css';
 
 class ReviewItem extends React.Component {
+
+  constructor(props){
+    super(props);
+
+
+  }
+
   render() {
-    return (
-      <article className="GalleryItem__root">
-        <div className="GalleryItem-header">
-          <div className="GalleryItem-header__avatar-container">
-            <img
-              src={this.props.avatarUrl}
-              className="GalleryItem-header__avatar-img"
-              alt={`${this.propsusername} profile`}
-            />
-          </div>
-          <div className="GalleryItem-header__metadata-container">
-            <strong>{this.props.username}</strong>
+
+    let userData = this.props.data.map(function (data, index) {
+        return (
+          <div className="medium-12 columns" key={index}>
+
+            <div className="people-you-might-know">
+
+              <div className="row add-people-section">
+                <div className="small-12 medium-10 columns about-people">
+
+                  <div className="about-people-author">
+                    <p className="author-name">
+                      <b>{data.value}</b>
+                      <p>{data.body}</p>
+                      <br/>
+
+
+                    </p>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+
           </div>
 
-        </div>
-        <div className="GalleryItem__body">
-          <img src={this.props.photoUrl} role="presentation" />
-        </div>
-        <div className="GalleryItem__footer">
-          <div>
-            15 Likes
-          </div>
-        </div>
-      </article>
+        )
+      }, this);
+
+      return (
+      <div>
+        {userData}
+
+      </div>
     );
+
   }
 }
-
-ReviewItem.propTypes = {
-  avatarUrl: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  photoUrl: PropTypes.string.isRequired,
-};
 
 export default ReviewItem;

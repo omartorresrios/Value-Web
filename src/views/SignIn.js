@@ -28,7 +28,7 @@ class SignIn extends React.Component {
       })
       .then((response) => {
         if (response.data) {
-          sessionStorage.setItem('userData', response);
+          sessionStorage.setItem('userData', JSON.stringify(response));
           this.setState({redirect: true});
         } else {
           console.log("SignUp error");

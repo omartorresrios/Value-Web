@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MainLayout from '../components/MainLayout';
 import Home from '../components/Home';
 import Profile from '../components/Profile';
@@ -9,14 +9,15 @@ import NotFound from '../components/NotFound';
 
 const createRoutes = (props) => {
   return (
-    <Router>
-      <MainLayout>
+    <BrowserRouter>
+      <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <Route path="/profile" component={Profile} />
-      </MainLayout>
-    </Router>
+        <Route path="*" component={NotFound}/>
+      </Switch>
+    </BrowserRouter>
   );
 };
 
