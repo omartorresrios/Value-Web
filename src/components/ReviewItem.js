@@ -24,12 +24,8 @@ class ReviewItem extends React.Component {
                   <div className="about-people-author">
                     <p className="author-name">
                       <b>{data.value}</b>
-                      <p>{data.body}</p>
-                      <br/>
-
-
                     </p>
-
+                    <p>{data.body}</p>
                   </div>
                 </div>
 

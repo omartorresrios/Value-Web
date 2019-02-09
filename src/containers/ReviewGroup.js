@@ -2,6 +2,8 @@ import React from 'react';
 import ReviewItem from '../components/ReviewItem';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import SearchContainer from '../components/SearchContainer';
+import UserList from '../components/UserList';
 
 class ReviewGroup extends React.Component {
 
@@ -10,11 +12,13 @@ class ReviewGroup extends React.Component {
 
     this.state = {
       data: [],
+      users: [],
       body: '',
       value: '',
       redirect: false,
     };
     this.getUserFeed = this.getUserFeed.bind(this);
+
     this.logout = this.logout.bind(this);
     this.feedUpdate = this.feedUpdate.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -61,6 +65,8 @@ class ReviewGroup extends React.Component {
     }
   }
 
+
+
   getUserFeed() {
 
     if (sessionStorage.getItem("userData")) {
@@ -93,6 +99,8 @@ class ReviewGroup extends React.Component {
 
     return (
       <div className="ReviewGroup__root">
+        
+        <SearchContainer />
         <form onSubmit={this.feedUpdate} method="post">
           <input name="body" onChange={this.onChange} value={this.state.body} type="text" placeholder="body"/>
           <input name="value" onChange={this.onChange} value={this.state.value} type="text" placeholder="value"/>

@@ -18,7 +18,6 @@ class Home extends Component {
     return (
       <div className="Home">
         <Header />
-        <h3>THIS IS HOME</h3>
         <ReviewGroup />
 
       </div>
