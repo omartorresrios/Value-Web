@@ -16,9 +16,11 @@ class ReviewGroup extends React.Component {
       body: '',
       value: '',
       redirect: false,
+      userReceiverId: '',
+      userReceiverFullname: '',
     };
     this.getUserFeed = this.getUserFeed.bind(this);
-
+    this.retrieveUserId = this.retrieveUserId.bind(this);
     this.logout = this.logout.bind(this);
     this.feedUpdate = this.feedUpdate.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -46,7 +48,7 @@ class ReviewGroup extends React.Component {
       const userToken = 'Token token='.concat(auth_token);
 
       if (this.state.body) {
-        axios.post('http://localhost:3000/api/3/write_review', {
+        axios.post("http://localhost:3000/api/"+this.state.userReceiverId+"/write_review", {
           body: this.state.body,
           value: this.state.value
         }, { headers: { Authorization: userToken } }).then(response => {
@@ -60,12 +62,8 @@ class ReviewGroup extends React.Component {
           console.log('error 3 ' + error);
         });
       }
-
-
     }
   }
-
-
 
   getUserFeed() {
 
@@ -91,6 +89,10 @@ class ReviewGroup extends React.Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  retrieveUserId(id, fullname) {
+    this.setState({userReceiverId: id, userReceiverFullname: fullname});
+  }
+
   render() {
 
     if (this.state.redirect) {
@@ -99,8 +101,9 @@ class ReviewGroup extends React.Component {
 
     return (
       <div className="ReviewGroup__root">
-        
-        <SearchContainer />
+
+        <SearchContainer getClickedUserId={this.retrieveUserId}/>
+        Para: <b>{this.state.userReceiverFullname}</b>
         <form onSubmit={this.feedUpdate} method="post">
           <input name="body" onChange={this.onChange} value={this.state.body} type="text" placeholder="body"/>
           <input name="value" onChange={this.onChange} value={this.state.value} type="text" placeholder="value"/>

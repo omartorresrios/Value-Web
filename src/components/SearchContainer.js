@@ -10,6 +10,7 @@ class SearchContainer extends React.Component {
 
     this.state = { preventHideDropdown: false, showDropdown: false, term: '', users: [] }
     this.hideDropdown = this.hideDropdown.bind(this);
+    this.getData = this.getData.bind(this);
     this.getAllusers = this.getAllusers.bind(this);
     this.showDropdown = this.showDropdown.bind(this);
     this.setPreventHideDropdown = this.setPreventHideDropdown.bind(this);
@@ -31,6 +32,7 @@ class SearchContainer extends React.Component {
         // If request is good...
 
         this.setState({users: response.data});
+        console.log("userId from Container: " + this.props.userId);
       })
       .catch((error) => {
         console.log('error 3 ' + error);
@@ -81,8 +83,16 @@ class SearchContainer extends React.Component {
     );
   }
 
+  getData(id, fullname){
+    this.props.getClickedUserId(id, fullname)
+    this.setState({ showDropdown: false });
+  }
+
   renderSearchResults() {
 
+    if(!this.state.showDropdown || this.state.users.length === 0) {
+      return;
+    }
 
     return (
       <SearchResultsList
@@ -90,6 +100,7 @@ class SearchContainer extends React.Component {
         resetPreventHideDropdown={this.resetPreventHideDropdown}
         term={this.state.term}
         users={this.state.users}
+        sendData={this.getData}
       />
     );
   }

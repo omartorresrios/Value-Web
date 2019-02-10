@@ -1,7 +1,8 @@
 import React from 'react';
 import SearchUserListItem from './SearchUserListItem';
-
+import SearchContainer from './SearchContainer';
 class SearchResultsList extends React.Component {
+
 
   render() {
     return (
@@ -19,8 +20,6 @@ class SearchResultsList extends React.Component {
     );
   }
 
-
-
   renderUsers() {
     let filteredUsers = this.props.users.filter(
       (user) => {
@@ -30,12 +29,12 @@ class SearchResultsList extends React.Component {
     );
 
     return filteredUsers.map((user) => {
-      return <SearchUserListItem key={user.id} user={user} />
+      return <SearchUserListItem key={user.id} user={user} onSearchTermChange={(userId, userFullname) => {this.props.sendData(userId, userFullname)}}/>
     });
   }
 
   renderUserHeading() {
-
+    if (this.props.users.length === 0) { return; }
 
     return <li className="autocomplete-heading"><h4>People</h4></li>
   }
