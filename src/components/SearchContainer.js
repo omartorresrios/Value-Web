@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import SearchBar from './search_bar';
+import SearchBar from './SearchBar';
 import SearchResultsList from './SearchResultsList';
 import axios from 'axios';
 

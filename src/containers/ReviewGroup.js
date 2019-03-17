@@ -3,7 +3,8 @@ import ReviewItem from '../components/ReviewItem';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import SearchContainer from '../components/SearchContainer';
-import UserList from '../components/UserList';
+import '../styles/ReviewGroup.css'
+import '../styles/WriteReview.css'
 
 class ReviewGroup extends React.Component {
 
@@ -101,14 +102,17 @@ class ReviewGroup extends React.Component {
 
     return (
       <div className="ReviewGroup__root">
-
         <SearchContainer getClickedUserId={this.retrieveUserId}/>
-        Para: <b>{this.state.userReceiverFullname}</b>
-        <form onSubmit={this.feedUpdate} method="post">
-          <input name="body" onChange={this.onChange} value={this.state.body} type="text" placeholder="body"/>
-          <input name="value" onChange={this.onChange} value={this.state.value} type="text" placeholder="value"/>
-          <input type="submit" value="Post" className="button" onClick={this.feedUpdate}/>
-        </form>
+        <div className="WriteReview__root" >
+          Para: <b>{this.state.userReceiverFullname}</b>
+          <form onSubmit={this.feedUpdate} method="post">
+            <input name="body" onChange={this.onChange} value={this.state.body} type="text" placeholder="body"/>
+            <input name="value" onChange={this.onChange} value={this.state.value} type="text" placeholder="value"/>
+            <input type="submit" value="Post" className="button" onClick={this.feedUpdate}/>
+          </form>
+        </div>
+
+
         <ReviewItem data = {this.state.data}/>
         <button type='button' onClick={this.logout}>Logout</button>
       </div>

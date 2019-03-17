@@ -14,7 +14,7 @@ const createRoutes = (props) => {
         <Route exact path="/" component={Home}/>
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/:fullname" component={Profile} />
         <Route path="*" component={NotFound}/>
       </Switch>
     </BrowserRouter>

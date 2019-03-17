@@ -9,9 +9,6 @@ class SearchBar extends React.Component {
     return (
       <form action="/search" acceptCharset="UTF-8" method="get">
         <input name="utf8" type="hidden" value="√" />
-        <button name="button" type="submit">
-          <i className="fa fa-search"></i>
-        </button>
         <input
           onFocus={() => this.props.showDropdown()}
           onBlur={() => this.props.hideDropdown()}
