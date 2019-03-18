@@ -8,7 +8,7 @@ class ReviewItem extends React.Component {
 
   constructor(props){
     super(props);
-    
+
   }
 
   render() {
@@ -22,8 +22,7 @@ class ReviewItem extends React.Component {
               </div>
               <div className="ReviewItem-header__metadata-container">
                 <div className="ReviewItem-header__username">
-
-                  <Link to={{pathname: `/${splitFullname(data.receiver.fullname)}`, state: { userFullnameFromHome: data.receiver.fullname}}}>{data.receiver.fullname}</Link>
+                  Receiver: <Link to={{pathname: `/${splitFullname(data.receiver.fullname)}`, state: { userFullnameFromHome: data.receiver.fullname, userIdFromHome: data.receiver.id }}}>{data.receiver.fullname}</Link>
                 </div>
               </div>
             </div>
@@ -38,7 +37,7 @@ class ReviewItem extends React.Component {
               </div>
               <div className="ReviewItem-header__metadata-container">
                 <div className="ReviewItem-header__username">
-                  <Link to={{pathname: `/${splitFullname(data.sender.fullname)}`, state: { userFullnameFromHome: data.sender.fullname}}}>{data.sender.fullname}</Link>
+                  Sender: <Link to={{pathname: `/${splitFullname(data.sender.fullname)}`, state: { userFullnameFromHome: data.sender.fullname, userIdFromHome: data.sender.id }}}>{data.sender.fullname}</Link>
                 </div>
               </div>
             </div>
