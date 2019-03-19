@@ -17,12 +17,10 @@ class Profile extends React.Component {
       job_description: '',
       receivedReviews: [],
       sentReviews: [],
-      isInEditMode: false
+      isInEditMode: false,
+      isReceivedReviewButtonActive: false
     };
-
     this.retrievingUsersInfo = this.retrievingUsersInfo.bind(this);
-
-
   }
 
   retrievingUsersInfo() {
@@ -137,9 +135,7 @@ class Profile extends React.Component {
       />
       <button onClick={this.changeEditMode}>X</button>
       <button onClick={this.updateComponentValue}>OK</button>
-
-      Received reviews: <ReviewItem data = {this.state.receivedReviews}/>
-      Sent reviews: <ReviewItem data = {this.state.sentReviews}/>
+      {this.showReviews()}
     </div>
   }
 
@@ -147,9 +143,34 @@ class Profile extends React.Component {
     return <div>
       <div onDoubleClick={this.changeEditMode}>Position: {this.state.userPosition}</div>
       <div onDoubleClick={this.changeEditMode}>Job Description: {this.state.userJobDescription}</div>
-      Received reviews: <ReviewItem data = {this.state.receivedReviews}/>
-      Sent reviews: <ReviewItem data = {this.state.sentReviews}/>
+      <button onClick={this.handleShowReceivedReviews}>Received reviews</button>
+      <button onClick={this.handleShowSentReviews}>Sent reviews</button>
+      {this.state.isReceivedReviewButtonActive ? this.showReceivedReviews() : this.showSentReviews()}
     </div>
+  }
+
+  handleShowReceivedReviews = () => {
+    this.setState({ isReceivedReviewButtonActive: true })
+  }
+
+  handleShowSentReviews = () => {
+    this.setState({ isReceivedReviewButtonActive: false })
+  }
+
+  showReceivedReviews() {
+    return (
+      <div>
+        Received reviews: <ReviewItem data = {this.state.receivedReviews}/>
+      </div>
+    );
+  }
+
+  showSentReviews() {
+    return (
+      <div>
+        Sent reviews: <ReviewItem data = {this.state.sentReviews}/>
+      </div>
+    );
   }
 
   render() {
