@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReviewItem from './ReviewItem';
+import { Route } from 'react-router-dom';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -33,9 +34,6 @@ class Profile extends React.Component {
     let userPosition = this.props.location.state.userPositionFromHome;
     let userJobDescription = this.props.location.state.userJobDescriptionFromHome;
 
-    console.log("userFullname: " + userFullname);
-
-    console.log("this.props.location.state: " + this.props.location.state.userFullnameFromHome);
     this.setState({
       currentUserFullname: currentUserFullname,
       userFullname: userFullname,
@@ -79,8 +77,30 @@ class Profile extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    console.log("props values: " + JSON.stringify(this.props));
     this.retrievingUsersInfo();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("userFullname: nextProps.location.state.userFullnameFromHome: " + nextProps.location.state.userFullnameFromHome)
+    console.log("userId: nextProps.location.state.userIdFromHome: " + nextProps.location.state.userIdFromHome)
+    console.log("userPosition: nextProps.location.state.userPositionFromHome " + nextProps.location.state.userPositionFromHome)
+    console.log("userJobDescription: nextProps.location.state.userJobDescriptionFromHome: " + nextProps.location.state.userJobDescriptionFromHome)
+
+
+
+    if (this.props.match.params.fullname !== nextProps.match.params.fullname) {
+      this.setState({
+        userFullname: nextProps.location.state.userFullnameFromHome,
+        userId: nextProps.location.state.userIdFromHome,
+        userPosition: nextProps.location.state.userPositionFromHome,
+        userJobDescription: nextProps.location.state.userJobDescriptionFromHome
+      });
+
+    } else {
+      console.log("Can't render the same user profile!");
+    }
   }
 
   changeEditMode = () => {
@@ -143,6 +163,7 @@ class Profile extends React.Component {
     return <div>
       <div onDoubleClick={this.changeEditMode}>Position: {this.state.userPosition}</div>
       <div onDoubleClick={this.changeEditMode}>Job Description: {this.state.userJobDescription}</div>
+
       <button onClick={this.handleShowReceivedReviews}>Received reviews</button>
       <button onClick={this.handleShowSentReviews}>Sent reviews</button>
       {this.state.isReceivedReviewButtonActive ? this.showReceivedReviews() : this.showSentReviews()}
