@@ -22,7 +22,7 @@ class ReviewItem extends React.Component {
               </div>
               <div className="ReviewItem-header__metadata-container">
                 <div className="ReviewItem-header__username">
-                  Receiver: <Link to={{pathname: `/${splitFullname(data.receiver.fullname)}`, state: { userFullnameFromHome: data.receiver.fullname, userIdFromHome: data.receiver.id, userPositionFromHome: data.receiver.position, userJobDescriptionFromHome: data.receiver.job_description }}}>{data.receiver.fullname}</Link>
+                  Receiver: <Link to={{pathname: `/${splitFullname(data.receiver.fullname)}`, state: { userFullname: data.receiver.fullname, userId: data.receiver.id, userPosition: data.receiver.position, userJobDescription: data.receiver.job_description }}}>{data.receiver.fullname}</Link>
                 </div>
               </div>
             </div>
@@ -37,7 +37,7 @@ class ReviewItem extends React.Component {
               </div>
               <div className="ReviewItem-header__metadata-container">
                 <div className="ReviewItem-header__username">
-                  Sender: <Link to={{pathname: `/${splitFullname(data.sender.fullname)}`, state: { userFullnameFromHome: data.sender.fullname, userIdFromHome: data.sender.id, userPositionFromHome: data.sender.position, userJobDescriptionFromHome: data.sender.job_description }}}>{data.sender.fullname}</Link>
+                  Sender: <Link to={{pathname: `/${splitFullname(data.sender.fullname)}`, state: { userFullname: data.sender.fullname, userId: data.sender.id, userPosition: data.sender.position, userJobDescription: data.sender.job_description }}}>{data.sender.fullname}</Link>
                 </div>
               </div>
             </div>
