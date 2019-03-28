@@ -10,6 +10,7 @@ import NotFound from '../components/NotFound';
 const createRoutes = (props) => {
   return (
     <BrowserRouter>
+      <MainLayout />
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/signin" component={SignIn} />
