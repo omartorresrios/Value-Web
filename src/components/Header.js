@@ -23,7 +23,8 @@ const Header = (props) => {
                 <NavLink to="/likes">Likes</NavLink>
               </li>
               <li className="Header__nav-link">
-                <NavLink to="/profile">Profile</NavLink>
+
+                <Link to={{pathname: `/${props.fullname}`, state: { userFullname: props.userFullname, userId: props.userId, userPosition: props.userPosition, userJobDescription: props.userJobDescription }}}>Profile</Link>
               </li>
             </ul>
           </nav>
