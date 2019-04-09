@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/MainLayout.css';
 import Header from './Header';
+import isUserSigned from '../views/SignIn';
 
 class MainLayout extends React.Component {
 
@@ -21,21 +22,26 @@ class MainLayout extends React.Component {
   }
 
   retrievingCurrentUserInfo() {
-    let currentUserData = JSON.parse(sessionStorage.getItem("userData"));
-    let auth_token = currentUserData.data.authentication_token
-    let fullname = currentUserData.data.fullname
-    let id = currentUserData.data.id
-    let position = currentUserData.data.position
-    let jobDescription = currentUserData.data.job_description
+    console.log("isUserSigned: " + isUserSigned);
+    if (isUserSigned) {
+      let currentUserData = JSON.parse(sessionStorage.getItem("userData"));
+      let auth_token = currentUserData.data.authentication_token
+      let fullname = currentUserData.data.fullname
+      let id = currentUserData.data.id
+      let position = currentUserData.data.position
+      let jobDescription = currentUserData.data.job_description
 
-    const userToken = 'Token token='.concat(auth_token);
+      const userToken = 'Token token='.concat(auth_token);
 
-    this.setState({
-      currentUserFullname: fullname,
-      currentUserId: id,
-      currentUserPosition: position,
-      currentUserJobDescription: jobDescription
-    })
+      this.setState({
+        currentUserFullname: fullname,
+        currentUserId: id,
+        currentUserPosition: position,
+        currentUserJobDescription: jobDescription
+      })
+    } else {
+      console.log("Not logged");
+    }
 
   }
 
