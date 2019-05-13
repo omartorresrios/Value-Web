@@ -22,20 +22,17 @@ class SearchContainer extends React.Component {
   }
 
   getAllusers() {
-
     if (sessionStorage.getItem("userData")) {
       let data = JSON.parse(sessionStorage.getItem("userData"));
       let auth_token = data.data.authentication_token
       const userToken = 'Token token='.concat(auth_token);
 
       axios.get('http://localhost:3000/api/all_users', { headers: { Authorization: userToken } }).then(response => {
-        // If request is good...
-
         this.setState({users: response.data});
         console.log("userId from Container: " + this.props.userId);
       })
       .catch((error) => {
-        console.log('error 3 ' + error);
+        console.log('Cant get the data because: ' + error);
       });
     }
   }

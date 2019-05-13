@@ -31,7 +31,9 @@ class AdminDashboard extends Component {
       emplWhoMostRecognizeData: [],
       emplMostRecognizeData: [],
       numberOfReviewsByValueData: [],
-      numberOfReviews: null
+      numberOfReviews: null,
+      totalEmployeesWhoRecognized: null,
+      totalEmployeesThatWereRecognized: null
     };
 
     this.logout = this.logout.bind(this);
@@ -87,6 +89,20 @@ class AdminDashboard extends Component {
 
     axios.get('http://localhost:3000/api/' + companyId + '/number_of_reviews', { headers: { Authorization: userToken } }).then(response => {
       this.setState({ numberOfReviews: response.data });
+    })
+    .catch((error) => {
+      console.log('Cannot get the data: ' + error);
+    });
+
+    axios.get('http://localhost:3000/api/' + companyId + '/total_employees_who_recognized', { headers: { Authorization: userToken } }).then(response => {
+      this.setState({ totalEmployeesWhoRecognized: response.data });
+    })
+    .catch((error) => {
+      console.log('Cannot get the data: ' + error);
+    });
+
+    axios.get('http://localhost:3000/api/' + companyId + '/total_employees_that_were_recognized', { headers: { Authorization: userToken } }).then(response => {
+      this.setState({ totalEmployeesThatWereRecognized: response.data });
     })
     .catch((error) => {
       console.log('Cannot get the data: ' + error);
@@ -163,6 +179,10 @@ class AdminDashboard extends Component {
 
     const numberOfReviews = this.state.numberOfReviews
 
+    const totalEmployeesWhoRecognized = this.state.totalEmployeesWhoRecognized
+
+    const totalEmployeesThatWereRecognized = this.state.totalEmployeesThatWereRecognized
+
     if (this.state.redirect) {
       return (<Redirect to={'/admin_signin'}/>)
     }
@@ -198,7 +218,7 @@ class AdminDashboard extends Component {
                     </div>
 
                     <div className="card-value pt-4 text-x-large">
-                      {this.state.numberOfReviews}
+                      {numberOfReviews}
                     </div>
                   </div>
                 </div>
@@ -207,7 +227,7 @@ class AdminDashboard extends Component {
                   <div className="card grid-card is-card-dark">
                     <div className="card-heading">
                       <div className="is-dark-text-light letter-spacing text-small">
-                        Revenue from Ebay
+                        Cantidad de empleados que reconocieron
                       </div>
                       <div className="card-heading-brand">
                         <i className="fab fa-ebay text-x-large logo-adjust" />
@@ -215,8 +235,7 @@ class AdminDashboard extends Component {
                     </div>
 
                     <div className="card-value pt-4 text-x-large">
-                      <span className="text-large pr-1">$</span>
-                      Content
+                      {totalEmployeesWhoRecognized}
                     </div>
                   </div>
                 </div>
@@ -225,7 +244,7 @@ class AdminDashboard extends Component {
                   <div className="card grid-card is-card-dark">
                     <div className="card-heading">
                       <div className="is-dark-text-light letter-spacing text-small">
-                        Revenue from Etsy
+                        Cantidad de empleados que fueron reconocidos
                       </div>
                       <div className="card-heading-brand">
                         <i className="fab fa-etsy text-medium" />
@@ -233,8 +252,7 @@ class AdminDashboard extends Component {
                     </div>
 
                     <div className="card-value pt-4 text-x-large">
-                      <span className="text-large pr-1">$</span>
-                      Content
+                      {totalEmployeesThatWereRecognized}
                     </div>
                   </div>
                 </div>

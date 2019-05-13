@@ -75,7 +75,6 @@ class ReviewGroup extends React.Component {
 
       axios.get('http://localhost:3000/api/all_reviews', { headers: { Authorization: userToken } }).then(response => {
         // If request is good...
-        console.log(response.data);
         this.setState({data: response.data});
       })
       .catch((error) => {
