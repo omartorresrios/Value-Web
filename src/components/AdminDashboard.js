@@ -293,14 +293,16 @@ class AdminDashboard extends Component {
                   <div className="card is-card-dark chart-card">
                     <div className="chart-container large full-height">
                       <table>
-                        <tr>
-                          <th>Empleado</th>
-                          <th>Departamento</th>
-                          <th>Reviews</th>
-                        </tr>
-                        <tr>
-                          {emplWhoMostRecognizeDataTable}
-                        </tr>
+                        <tbody>
+                          <tr>
+                            <th>Empleado</th>
+                            <th>Departamento</th>
+                            <th>Reviews</th>
+                          </tr>
+                          <tr>
+                            {emplWhoMostRecognizeDataTable}
+                          </tr>
+                        </tbody>
                       </table>
                     </div>
                   </div>
@@ -310,14 +312,16 @@ class AdminDashboard extends Component {
                   <div className="card is-card-dark chart-card">
                     <div className="chart-container large full-height">
                     <table>
-                      <tr>
-                        <th>Empleado</th>
-                        <th>Departamento</th>
-                        <th>Reviews</th>
-                      </tr>
-                      <tr>
-                        {emplMostRecognizeDataTable}
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <th>Empleado</th>
+                          <th>Departamento</th>
+                          <th>Reviews</th>
+                        </tr>
+                        <tr>
+                          {emplMostRecognizeDataTable}
+                        </tr>
+                      </tbody>
                     </table>
                     </div>
                   </div>

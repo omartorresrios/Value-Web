@@ -67,7 +67,7 @@ class SignIn extends React.Component {
               <input name="email" placeholder="email" onChange={this.onChange}/>
               <input name="password" placeholder="password" onChange={this.onChange}/>
               <button onClick={this.signin}>SignIn</button>
-              <Link to="/signup">Go to SignUp</Link>
+              <Link to="/signup/personal_data">Go to SignUp</Link>
               <div>
                 <Link to="/admin_signin">Are you an admin?</Link>
               </div>

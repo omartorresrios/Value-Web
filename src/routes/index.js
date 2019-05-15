@@ -6,19 +6,21 @@ import Profile from '../components/Profile';
 import SignIn from '../views/SignIn';
 import AdminSignIn from '../views/AdminSignIn';
 import AdminDashboard from '../components/AdminDashboard';
-import SignUp from '../views/SignUp';
+import SignUpPersonalData from '../views/SignUpPersonalData';
+import SignUpCompanyData from '../views/SignUpCompanyData';
 import NotFound from '../components/NotFound';
 
 const createRoutes = (props) => {
   return (
     <BrowserRouter>
-      
+    
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/admin_dashboard" component={AdminDashboard} />
         <Route path="/signin" component={SignIn} />
         <Route path="/admin_signin" component={AdminSignIn} />
-        <Route path="/signup" component={SignUp} />
+        <Route path="/signup/personal_data" component={SignUpPersonalData} />
+        <Route path="/signup/company_data" component={SignUpCompanyData} />
         <Route path="/:fullname" component={Profile} />
         <Route path="*" component={NotFound}/>
       </Switch>

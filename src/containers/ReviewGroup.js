@@ -60,7 +60,7 @@ class ReviewGroup extends React.Component {
           this.setState({data: K, body: '', value: ''});
         })
         .catch((error) => {
-          console.log('error 3 ' + error);
+          console.log('Cant save the review in the server because: ' + error);
         });
       }
     }
@@ -78,7 +78,7 @@ class ReviewGroup extends React.Component {
         this.setState({data: response.data});
       })
       .catch((error) => {
-        console.log('error 3 ' + error);
+        console.log('Cant get all reviews data because: ' + error);
       });
     }
 
