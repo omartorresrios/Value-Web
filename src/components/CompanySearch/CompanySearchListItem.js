@@ -1,5 +1,4 @@
 import React from 'react';
-import CompanySearchResultsList from './CompanySearchResultsList';
 
 class CompanySearchListItem extends React.Component {
 

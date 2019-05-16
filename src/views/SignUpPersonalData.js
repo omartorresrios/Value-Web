@@ -15,17 +15,16 @@ class SignUpPersonalData extends React.Component {
       company_id: '',
       redirect: false
     };
-    this.signup = this.signup.bind(this);
+    this.Continue = this.Continue.bind(this);
     this.onChange = this.onChange.bind(this);
 
   }
 
-  signup() {
+  Continue() {
 
     if (this.state.email && this.state.password && this.state.fullname) {
       this.setState({redirect: true});
     }
-
   }
 
   onChange(e) {
@@ -44,7 +43,7 @@ class SignUpPersonalData extends React.Component {
         <input type="text" name="fullname" placeholder="fullname" onChange={this.onChange}/>
         <input type="text" name="email" placeholder="Correo" onChange={this.onChange}/>
         <input type="text" name="password" placeholder="Contraseña" onChange={this.onChange}/>
-        <input type="submit" value="Continuar" onClick={this.signup}/>
+        <input type="submit" value="Continuar" onClick={this.Continue}/>
       </div>
       );
     };
