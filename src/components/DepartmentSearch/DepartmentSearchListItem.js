@@ -10,7 +10,6 @@ class DepartmentSearchListItem extends React.Component {
     return (
       <li>
         <span dangerouslySetInnerHTML={{ __html: this.props.department.name }} onClick={() => this.handleDepartmentClicked(this.props.department.id, this.props.department.name)} />
-
       </li>
     );
   }
