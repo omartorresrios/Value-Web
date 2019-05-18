@@ -66,7 +66,7 @@ class ReviewGroup extends React.Component {
       if (this.state.body) {
         axios.post("http://localhost:3000/api/"+this.state.userReceiverId+"/write_review", {
           body: this.state.body,
-          value: this.state.value
+          value_id: this.state.valueId
         }, { headers: { Authorization: userToken } }).then(response => {
           // If request is good...
           console.log("Review sended!: " + JSON.stringify(response.data));
