@@ -148,21 +148,21 @@ class AdminDashboard extends Component {
 
     var emplWhoMostRecognizeDataTable = this.state.emplWhoMostRecognizeData.map((item, key) => {
         return (
-          <div>
+          <tr className="is-dark-text-light">
             <td key={item.id}>{item.empleado}</td>
             <td key={item.id}>{item.departamento}</td>
-            <td key={item.id}>{item.reviews}</td>
-          </div>
+            <td className="text-center" key={item.id}>{item.reviews}</td>
+          </tr>
         )
     });
 
     var emplMostRecognizeDataTable = this.state.emplMostRecognizeData.map((item, key) => {
         return (
-          <div>
+          <tr className="is-dark-text-light">
             <td key={item.id}>{item.empleado}</td>
             <td key={item.id}>{item.departamento}</td>
-            <td key={item.id}>{item.reviews}</td>
-          </div>
+            <td className="text-center" key={item.id}>{item.reviews}</td>
+          </tr>
         )
     });
 
@@ -206,56 +206,77 @@ class AdminDashboard extends Component {
           <div className="col-sm-10 px-1 dashboard_background">
             <div className="container-fluid pr-5 pl-5 pt-5 pb-5">
               <div className="row">
-                <div className="cols-sm col-md-4 is-light-text mb-4">
-                  <div className="card grid-card is-card-dark">
-                    <div className="card-heading">
-                      <div className="is-dark-text-light letter-spacing text-small">
-                        Cantidad de reseñas
-                      </div>
-                      <div className="card-heading-brand">
-                        <i className="fab fa-amazon text-large" />
+                <div className="col-sm-12">
+                  <div className="row">
+
+                    <div className="col-sm-12 col-lg-4 is-light-text mb-4">
+                      <div className="card is-card-dark">
+                        <div className="card-body card-body-padding">
+                          <div className="card-title card-title-font">
+                            <div className="is-dark-text-light letter-spacing">
+                              Reseñas
+                            </div>
+                            <div className="card-heading-brand">
+                              <i className="fab fa-amazon text-large" />
+                            </div>
+                          </div>
+
+                          <div className="card-text pt-4 card-body-font">
+                            <div>
+                              {numberOfReviews}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="card-value pt-4 text-x-large">
-                      {numberOfReviews}
+                    <div className="col-sm-12 col-lg-4 is-light-text mb-4">
+                      <div className="card is-card-dark">
+                      <div className="card-body card-body-padding">
+                        <div className="card-title card-title-font">
+                          <div className="is-dark-text-light letter-spacing">
+                            Empleados que reconocieron
+                          </div>
+                          <div className="card-heading-brand">
+                            <i className="fab fa-ebay text-x-large logo-adjust" />
+                          </div>
+                        </div>
+
+                        <div className="card-text pt-4 card-body-font">
+                          {totalEmployeesWhoRecognized}
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+
+                    <div className="col-sm-12 col-lg-4 is-light-text mb-4">
+                      <div className="card is-card-dark">
+                        <div className="card-body card-body-padding">
+                          <div className="card-title card-title-font">
+                            <div className="is-dark-text-light letter-spacing">
+                              Empleados que fueron reconocidos
+                            </div>
+                            <div className="card-heading-brand">
+                              <i className="fab fa-etsy text-medium" />
+                            </div>
+                          </div>
+
+                          <div className="card-text pt-4 card-body-font">
+                            {totalEmployeesThatWereRecognized}
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="cols-sm col-md-4 is-light-text mb-4">
-                  <div className="card grid-card is-card-dark">
-                    <div className="card-heading">
-                      <div className="is-dark-text-light letter-spacing text-small">
-                        Cantidad de empleados que reconocieron
-                      </div>
-                      <div className="card-heading-brand">
-                        <i className="fab fa-ebay text-x-large logo-adjust" />
-                      </div>
-                    </div>
 
-                    <div className="card-value pt-4 text-x-large">
-                      {totalEmployeesWhoRecognized}
-                    </div>
-                  </div>
-                </div>
+              </div>
 
-                <div className="cols-sm col-md-4 is-light-text mb-4">
-                  <div className="card grid-card is-card-dark">
-                    <div className="card-heading">
-                      <div className="is-dark-text-light letter-spacing text-small">
-                        Cantidad de empleados que fueron reconocidos
-                      </div>
-                      <div className="card-heading-brand">
-                        <i className="fab fa-etsy text-medium" />
-                      </div>
-                    </div>
+              <div className="row">
 
-                    <div className="card-value pt-4 text-x-large">
-                      {totalEmployeesThatWereRecognized}
-                    </div>
-                  </div>
-                </div>
+
               </div>
 
               <div className="row" style={{ minHeight: "400px" }}>
@@ -288,20 +309,21 @@ class AdminDashboard extends Component {
                 </div>
               </div>
 
-              <div className="row" style={{ minHeight: "400px" }}>
+              <div className="row">
                 <div className="col-md-6 mb-4">
                   <div className="card is-card-dark chart-card">
                     <div className="chart-container large full-height">
-                      <table>
+                      <div>Empleados que más reconocieron</div>
+                      <table className="table table-bordered">
+                        <thead>
+                          <tr className="is-dark-text-light">
+                            <th scope="col">Empleado</th>
+                            <th scope="col">Departamento</th>
+                            <th scope="col">Reviews</th>
+                          </tr>
+                        </thead>
                         <tbody>
-                          <tr>
-                            <th>Empleado</th>
-                            <th>Departamento</th>
-                            <th>Reviews</th>
-                          </tr>
-                          <tr>
-                            {emplWhoMostRecognizeDataTable}
-                          </tr>
+                          {emplWhoMostRecognizeDataTable}
                         </tbody>
                       </table>
                     </div>
@@ -311,16 +333,17 @@ class AdminDashboard extends Component {
                 <div className="col-md-6 mb-4">
                   <div className="card is-card-dark chart-card">
                     <div className="chart-container large full-height">
-                    <table>
+                    <div>Empleados más reconocidos</div>
+                    <table className="table table-bordered">
+                      <thead>
+                        <tr className="is-dark-text-light">
+                          <th scope="col">Empleado</th>
+                          <th scope="col">Departamento</th>
+                          <th scope="col">Reviews</th>
+                        </tr>
+                      </thead>
                       <tbody>
-                        <tr>
-                          <th>Empleado</th>
-                          <th>Departamento</th>
-                          <th>Reviews</th>
-                        </tr>
-                        <tr>
-                          {emplMostRecognizeDataTable}
-                        </tr>
+                        {emplMostRecognizeDataTable}
                       </tbody>
                     </table>
                     </div>

@@ -9,11 +9,13 @@ import AdminDashboard from '../components/AdminDashboard';
 import SignUpPersonalData from '../views/SignUpPersonalData';
 import SignUpCompanyData from '../views/SignUpCompanyData';
 import NotFound from '../components/NotFound';
+import '../styles/Index.css';
+
 
 const createRoutes = (props) => {
   return (
     <BrowserRouter>
-    
+
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/admin_dashboard" component={AdminDashboard} />

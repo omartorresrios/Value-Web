@@ -41,8 +41,18 @@
   letter-spacing: 0.05rem;
 }
 
-.text-small {
-  font-size: 0.875rem;
+.card-body-padding {
+  padding: 1.5rem;
+}
+
+.card-title-font {
+  font-family: Nunito;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.card-body-font {
+  font-size: 2rem;
 }
 
 .is-dark-text-light {
