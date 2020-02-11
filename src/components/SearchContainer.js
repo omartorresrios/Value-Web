@@ -28,7 +28,7 @@ class SearchContainer extends React.Component {
       const userToken = 'Token token='.concat(auth_token);
 
       let currentUserIdTest = data.data.id
-      axios.get('http://localhost:3000/api/all_users', { headers: { Authorization: userToken } }).then(response => {
+      axios.get('http://localhost:3000/api/current_user_company_employees', { headers: { Authorization: userToken } }).then(response => {
         const filteredUsers = response.data.filter(user => {
           if (user.id !== data.data.id) {
             return user.id !== data.data.id;
